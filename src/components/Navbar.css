@@ -44,9 +44,7 @@
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
-  transition:
-    color 0.2s,
-    background 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 
 .nav-link:hover {

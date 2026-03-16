@@ -29,14 +29,12 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <Link to="/" className="navbar-brand">
-          <span className="brand-movie">movie</span>
-          <span className="brand-db">DB</span>
+          <h1 className="brand-heading">movieDB</h1>
         </Link>
-
         <ul className="nav-links">
           <li>
             <Link to="/" className={`nav-link ${path === '/' ? 'active' : ''}`}>
-              Popular
+              Home
             </Link>
           </li>
           <li>
@@ -56,7 +54,6 @@ class Navbar extends Component {
             </Link>
           </li>
         </ul>
-
         <div className="search-container">
           <input
             type="text"

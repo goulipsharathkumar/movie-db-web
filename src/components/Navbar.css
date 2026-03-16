@@ -126,3 +126,11 @@
     width: 100%;
   }
 }
+
+.brand-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}

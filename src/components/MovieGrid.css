@@ -2,6 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 2.5rem 2rem 4rem;
+  text-align: center;
 }
 
 .page-heading {
@@ -12,6 +13,7 @@
   color: var(--text-primary);
   position: relative;
   display: inline-block;
+  text-align: left;
 }
 
 .page-heading::after {
@@ -32,6 +34,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 .loader-container {
@@ -92,6 +95,15 @@
 .no-results-text {
   font-size: 1.25rem;
   color: var(--text-secondary);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
 }
 
 @media (max-width: 600px) {

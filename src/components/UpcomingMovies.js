@@ -1,7 +1,5 @@
 import MovieGrid from './MovieGrid'
 
-const UpcomingMovies = () => (
-  <MovieGrid heading="Upcoming Movies" apiPath="upcoming" />
-)
+const UpcomingMovies = () => <MovieGrid apiPath="upcoming" />
 
 export default UpcomingMovies

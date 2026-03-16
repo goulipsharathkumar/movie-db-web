@@ -13,11 +13,16 @@ const apiStatusConstants = {
   failure: 'FAILURE',
 }
 
+const headingMap = {
+  popular: 'Popular',
+  top_rated: 'Top Rated',
+  upcoming: 'Upcoming',
+}
+
 class MovieGrid extends Component {
   state = {
     moviesList: [],
     currentPage: 1,
-    totalPages: 1,
     apiStatus: apiStatusConstants.initial,
   }
 
@@ -33,7 +38,7 @@ class MovieGrid extends Component {
   }
 
   getMovies = async page => {
-    this.setState({apiStatus: apiStatusConstants.loading})
+    this.setState({apiStatus: apiStatusConstants.loading, currentPage: page})
     const {apiPath, query} = this.props
     try {
       let url = ''
@@ -49,7 +54,6 @@ class MovieGrid extends Component {
         const data = await response.json()
         this.setState({
           moviesList: data.results || [],
-          totalPages: Math.min(data.total_pages || 1, 500),
           currentPage: page,
           apiStatus: apiStatusConstants.success,
         })
@@ -92,7 +96,7 @@ class MovieGrid extends Component {
   }
 
   renderSuccessView = () => {
-    const {moviesList, currentPage, totalPages} = this.state
+    const {moviesList} = this.state
     if (moviesList.length === 0) {
       return (
         <div className="no-results-container">
@@ -101,18 +105,11 @@ class MovieGrid extends Component {
       )
     }
     return (
-      <>
-        <ul className="movies-grid">
-          {moviesList.map(movie => (
-            <MovieCard key={movie.id} movieDetails={movie} />
-          ))}
-        </ul>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={this.onPageChange}
-        />
-      </>
+      <ul className="movies-grid">
+        {moviesList.map(movie => (
+          <MovieCard key={movie.id} movieDetails={movie} />
+        ))}
+      </ul>
     )
   }
 
@@ -131,11 +128,20 @@ class MovieGrid extends Component {
   }
 
   render() {
-    const {heading} = this.props
+    const {apiPath} = this.props
+    const {currentPage, apiStatus} = this.state
+    const heading = headingMap[apiPath] || 'Movies'
     return (
       <div className="page-content">
-        <h1 className="page-heading">{heading}</h1>
+        <h2 className="page-heading">{heading}</h2>
         {this.renderMovies()}
+        {apiStatus !== apiStatusConstants.initial &&
+          apiStatus !== apiStatusConstants.failure && (
+            <Pagination
+              currentPage={currentPage}
+              onPageChange={this.onPageChange}
+            />
+          )}
       </div>
     )
   }

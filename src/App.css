@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a26;
+  --bg-card-hover: #20202f;
+  --accent: #e63946;
+  --accent-dim: rgba(230, 57, 70, 0.15);
+  --accent-glow: rgba(230, 57, 70, 0.4);
+  --gold: #ffd166;
+  --gold-dim: rgba(255, 209, 102, 0.15);
+  --green: #06d6a0;
+  --text-primary: #f0f0f8;
+  --text-secondary: #9898b0;
+  --text-muted: #5a5a72;
+  --border: rgba(255, 255, 255, 0.06);
+  --navbar-h: 68px;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}

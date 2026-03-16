@@ -1,0 +1,106 @@
+.page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.page-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.25rem;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.page-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.failure-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.failure-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.retry-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retry-btn:hover {
+  background: #c1121f;
+}
+
+.no-results-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.no-results-text {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .page-content {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 1rem;
+  }
+}
